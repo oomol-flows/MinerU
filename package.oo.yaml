@@ -4,5 +4,15 @@ scripts:
   # Script executed when the container is first loaded
   # eg: bootstrap: pip install pandas
   bootstrap: |
-    npm install
+    set -e
+    sudo apt-get update
+    sudo apt-get install ffmpeg libsm6 libxext6 -y
+
+    pip install --upgrade pip
+    pip install paddlepaddle
+    pip install paddleocr --upgrade
     pip install -r requirements.txt
+
+    python scripts/download_magic_pdf.py
+    cd magic_pdf
+    pip install -r requirements.txt --extra-index-url https://wheels.myhloli.com
