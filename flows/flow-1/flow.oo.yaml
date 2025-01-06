@@ -4,7 +4,7 @@ nodes:
     node_id: model#1
     inputs_from:
       - handle: dir_path
-        value: /oomol-driver/oomol-storage/MinerModels
+        value: /oomol-driver/oomol-storage/MinerUModles
   - task:
       ui:
         default_width: 450
