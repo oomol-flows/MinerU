@@ -1,5 +1,1 @@
 huggingface-hub==0.27.0
-pillow==11.1.0
-opencv-python==4.10.0.84
-doclayout-yolo==0.0.2
-pycocotools==2.0.8
