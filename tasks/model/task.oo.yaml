@@ -1,0 +1,22 @@
+inputs_def:
+  - handle: dir_path
+    description: Input
+    json_schema:
+      type: string
+      ui:widget: dir
+    value:
+    nullable: true
+outputs_def:
+  - handle: config_path
+    description: Output
+    json_schema:
+      type: string
+      ui:widget: file
+ui:
+  default_width: 350
+executor:
+  name: python
+  options:
+    spawn: false
+    entry: main.py
+title: MinerU model

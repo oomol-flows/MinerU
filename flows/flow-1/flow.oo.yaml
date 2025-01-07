@@ -1,1 +1,19 @@
-nodes: []
+nodes:
+  - task: self::model
+    title: "MinerU model #1"
+    node_id: model#1
+    inputs_from:
+      - handle: dir_path
+        value: /oomol-driver/oomol-storage/MinerUModles
+  - task: self::convert
+    title: "MinerU convert #1"
+    node_id: convert#1
+    inputs_from:
+      - handle: config_path
+        from_node:
+          - node_id: model#1
+            output_handle: config_path
+      - handle: pdf_path
+        value: /oomol-driver/oomol-storage/BooksTranslate/片段-中国道教科技史.pdf
+      - handle: output_dir
+        value:

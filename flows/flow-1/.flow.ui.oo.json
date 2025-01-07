@@ -1,0 +1,22 @@
+{
+  "nodes": {
+    "model#1": {
+      "contentWidth": 350,
+      "rfNode": {
+        "position": {
+          "x": 138,
+          "y": 156
+        }
+      }
+    },
+    "convert#1": {
+      "contentWidth": 360.37967426610385,
+      "rfNode": {
+        "position": {
+          "x": 547,
+          "y": 156
+        }
+      }
+    }
+  }
+}
