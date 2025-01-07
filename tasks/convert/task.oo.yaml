@@ -8,6 +8,16 @@ inputs_def:
     json_schema:
       type: string
       ui:widget: file
+  - handle: device
+    json_schema:
+      enum:
+        - cpu
+        - cuda
+      ui:options:
+        labels:
+          - CPU
+          - CUDA
+    value: cpu
   - handle: output_path
     json_schema:
       type: string
@@ -15,10 +25,10 @@ inputs_def:
     value:
     nullable: true
 outputs_def:
-  - handle: output_path
+  - handle: generator
     json_schema:
-      type: string
-      ui:widget: dir
+      contentMediaType: oomol/var
+    kind: generator
 ui:
   default_width: 408.5798840616697
 executor:

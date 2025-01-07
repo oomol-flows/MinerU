@@ -1,0 +1,79 @@
+nodes:
+  - task: self::model
+    title: "MinerU model #1"
+    node_id: model#1
+    inputs_from:
+      - handle: dir_path
+        value:
+  - task: self::convert
+    title: "MinerU convert #1"
+    node_id: convert#1
+    inputs_from:
+      - handle: config_path
+        from_node:
+          - node_id: model#1
+            output_handle: config_path
+      - handle: pdf_path
+        value: /oomol-driver/oomol-storage/BooksTranslate/片段-中国道教科技史.pdf
+      - handle: output_path
+        value:
+      - handle: device
+        value: cpu
+  - task: self::draw-pdf
+    title: "Draw PDF file #2"
+    node_id: draw-pdf#2
+    inputs_from:
+      - handle: generator
+        from_node:
+          - node_id: convert#1
+            output_handle: generator
+      - handle: name
+        value:
+      - handle: kind
+        value: layout
+  - task: self::dump-md-file
+    title: "Dump Markdown file #1"
+    node_id: dump-md-file#1
+    inputs_from:
+      - handle: generator
+        from_node:
+          - node_id: convert#1
+            output_handle: generator
+      - handle: name
+        value:
+  - task: self::dump-content-list-file
+    title: "Dump content list file #1"
+    node_id: dump-content-list-file#1
+    inputs_from:
+      - handle: generator
+        from_node:
+          - node_id: convert#1
+            output_handle: generator
+      - handle: name
+        value:
+  - task: oomol-file::read-file
+    title: "Read file #1"
+    node_id: read-file#1
+    inputs_from:
+      - handle: file
+        from_node:
+          - node_id: dump-content-list-file#1
+            output_handle: file_path
+  - task: oomol-transform::decode-string
+    title: "Decode string #1"
+    node_id: decode-string#1
+    inputs_from:
+      - handle: binary
+        from_node:
+          - node_id: read-file#1
+            output_handle: binary
+      - handle: encoding
+        value: utf8
+  - task: oomol-transform::parse-json
+    title: "Parse JSON #1"
+    node_id: parse-json#1
+    inputs_from:
+      - handle: string
+        from_node:
+          - node_id: decode-string#1
+            output_handle: string
