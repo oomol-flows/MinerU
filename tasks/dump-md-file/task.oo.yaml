@@ -1,0 +1,27 @@
+executor:
+  name: python
+  options:
+    entry: __init__.py
+inputs_def:
+  - handle: generator
+    json_schema:
+      contentMediaType: oomol/var
+    kind: generator
+  - handle: name
+    json_schema:
+      type: string
+      minLength: 1
+    value:
+    nullable: true
+outputs_def:
+  - handle: file_path
+    json_schema:
+      type: string
+      ui:widget: file
+  - handle: images_path
+    json_schema:
+      type: string
+      ui:widget: dir
+title: Dump Markdown file
+ui:
+  default_width: 350

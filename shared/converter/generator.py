@@ -21,6 +21,10 @@ class Generator:
     self._output_image_path: str = output_image_path
     self._lock: Lock = Lock()
 
+  @property
+  def output_image_path(self) -> str:
+    return self._output_image_path
+
   def draw_layout(self, name: str | None) -> str:
     output_path = self._to_output_path(name, "_layout.pdf")
     with self._lock:

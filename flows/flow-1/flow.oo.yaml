@@ -31,3 +31,23 @@ nodes:
         value:
       - handle: kind
         value: layout
+  - task: self::dump-md-file
+    title: "Dump Markdown file #1"
+    node_id: dump-md-file#1
+    inputs_from:
+      - handle: generator
+        from_node:
+          - node_id: convert#1
+            output_handle: generator
+      - handle: name
+        value:
+  - task: self::dump-content-list-file
+    title: "Dump content list file #1"
+    node_id: dump-content-list-file#1
+    inputs_from:
+      - handle: generator
+        from_node:
+          - node_id: convert#1
+            output_handle: generator
+      - handle: name
+        value:
