@@ -60,4 +60,4 @@ class Generator:
   def _to_output_path(self, name: str | None, sufix: str) -> str:
     if name is None:
       name = f"{self._proto_name}{sufix}"
-    return os.path.join(self._output_image_path, name)
+    return os.path.join(self._output_path, name)

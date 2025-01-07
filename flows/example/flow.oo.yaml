@@ -4,7 +4,7 @@ nodes:
     node_id: model#1
     inputs_from:
       - handle: dir_path
-        value: /oomol-driver/oomol-storage/MinerUModles
+        value:
   - task: self::convert
     title: "MinerU convert #1"
     node_id: convert#1
@@ -51,3 +51,29 @@ nodes:
             output_handle: generator
       - handle: name
         value:
+  - task: oomol-file::read-file
+    title: "Read file #1"
+    node_id: read-file#1
+    inputs_from:
+      - handle: file
+        from_node:
+          - node_id: dump-content-list-file#1
+            output_handle: file_path
+  - task: oomol-transform::decode-string
+    title: "Decode string #1"
+    node_id: decode-string#1
+    inputs_from:
+      - handle: binary
+        from_node:
+          - node_id: read-file#1
+            output_handle: binary
+      - handle: encoding
+        value: utf8
+  - task: oomol-transform::parse-json
+    title: "Parse JSON #1"
+    node_id: parse-json#1
+    inputs_from:
+      - handle: string
+        from_node:
+          - node_id: decode-string#1
+            output_handle: string
