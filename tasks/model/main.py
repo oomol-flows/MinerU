@@ -41,7 +41,7 @@ def download_and_modify_json(url, local_filename, modifications):
 
 def main(params: dict, context: Context):
   dir_path = get_dir_path(params)
-  config_file = os.path.join(dir_path, "magic-pdf.json")
+  config_file = os.path.join(dir_path, "magic-pdf.template.json")
 
   if os.path.exists(config_file):
     return { "config_path": config_file }
@@ -73,7 +73,6 @@ def main(params: dict, context: Context):
   print(f"layoutreader_model_dir is: {layoutreader_model_dir}")
 
   json_url = "https://github.com/opendatalab/MinerU/raw/master/magic-pdf.template.json"
-
   json_mods = {
     "models-dir": model_dir,
     "layoutreader-model-dir": layoutreader_model_dir,

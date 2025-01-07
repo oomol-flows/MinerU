@@ -5,29 +5,9 @@ nodes:
     inputs_from:
       - handle: dir_path
         value: /oomol-driver/oomol-storage/MinerUModles
-  - task:
-      ui:
-        default_width: 450
-      inputs_def:
-        - handle: config_path
-          description: Input
-          json_schema:
-            type: string
-            ui:widget: file
-        - handle: pdf_path
-          json_schema:
-            type: string
-            ui:widget: file
-          value: ""
-      outputs_def:
-        []
-      executor:
-        name: python
-        options:
-          entry: scriptlets/+python#2.py
-    title: Run
-    icon: ":logos:python:"
-    node_id: +python#2
+  - task: self::convert
+    title: "MinerU convert #1"
+    node_id: convert#1
     inputs_from:
       - handle: config_path
         from_node:
@@ -35,3 +15,5 @@ nodes:
             output_handle: config_path
       - handle: pdf_path
         value: /oomol-driver/oomol-storage/BooksTranslate/片段-中国道教科技史.pdf
+      - handle: output_dir
+        value:

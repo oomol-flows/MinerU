@@ -8,5 +8,5 @@ scripts:
     sudo apt-get update
     sudo apt-get install ffmpeg libsm6 libxext6 -y
     pip install --upgrade pip
-    pip install -U "magic-pdf[full]" --extra-index-url https://wheels.myhloli.com -i https://pypi.tuna.tsinghua.edu.cn/simple --no-cache-dir
+    pip install -U "magic-pdf[full]==0.10.6" --extra-index-url https://wheels.myhloli.com -i https://pypi.tuna.tsinghua.edu.cn/simple --no-cache-dir
     pip install -r requirements.txt

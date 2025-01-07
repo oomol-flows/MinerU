@@ -1,0 +1,29 @@
+inputs_def:
+  - handle: config_path
+    description: Input
+    json_schema:
+      type: string
+      ui:widget: file
+  - handle: pdf_path
+    json_schema:
+      type: string
+      ui:widget: file
+  - handle: output_path
+    json_schema:
+      type: string
+      ui:widget: dir
+    value:
+    nullable: true
+outputs_def:
+  - handle: output_path
+    json_schema:
+      type: string
+      ui:widget: dir
+ui:
+  default_width: 408.5798840616697
+executor:
+  name: python
+  options:
+    spawn: false
+    entry: main.py
+title: MinerU convert
