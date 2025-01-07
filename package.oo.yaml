@@ -13,3 +13,11 @@ scripts:
 dependencies:
   oomol-file: 0.0.1
   oomol-transform: 0.0.1
+name: mineru
+displayName: MinerU
+description: MinerU is a tool that converts PDFs into machine-readable formats
+  (e.g., markdown, JSON), allowing f
+platform:
+  - os: ""
+repository: https://github.com/oomol-flows/MinerU
+releaseNotes: init the first version
