@@ -19,3 +19,15 @@ nodes:
         value:
       - handle: device
         value: cpu
+  - task: self::draw-pdf
+    title: "Draw PDF file #2"
+    node_id: draw-pdf#2
+    inputs_from:
+      - handle: generator
+        from_node:
+          - node_id: convert#1
+            output_handle: generator
+      - handle: name
+        value:
+      - handle: kind
+        value: layout
