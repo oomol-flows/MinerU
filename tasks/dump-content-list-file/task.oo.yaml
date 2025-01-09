@@ -13,6 +13,10 @@ inputs_def:
       minLength: 1
     value:
     nullable: true
+  - handle: absolute_image_path
+    json_schema:
+      type: boolean
+    value: false
 outputs_def:
   - handle: file_path
     json_schema:

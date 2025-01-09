@@ -1,4 +1,4 @@
-version: 0.0.1
+version: 0.0.2
 icon: ./icon.png
 scripts:
   # Script executed when the container is first loaded
@@ -17,7 +17,9 @@ name: mineru
 displayName: MinerU
 description: MinerU is a tool that converts PDFs into machine-readable formats
   (e.g., markdown, JSON), allowing f
-platform:
-  - os: ""
+releaseNotes: add abosulute_image_path filed
 repository: https://github.com/oomol-flows/MinerU
-releaseNotes: init the first version
+platform:
+  - os: win32
+    cpu: x64
+    gpu: ""

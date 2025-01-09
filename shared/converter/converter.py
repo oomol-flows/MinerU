@@ -9,7 +9,8 @@ from .generator import Generator
 def convert(pdf_path: str, output_path: str):
   pdf_file_name = os.path.basename(pdf_path)
   proto_name = pdf_file_name.split(".")[0]
-  output_image_path = os.path.join(output_path, "images")
+  image_folder: str = "images"
+  output_image_path = os.path.join(output_path, image_folder)
   image_writer = FileBasedDataWriter(output_image_path)
   md_writer = FileBasedDataWriter(output_path)
   reader1 = FileBasedDataReader("")
@@ -26,5 +27,5 @@ def convert(pdf_path: str, output_path: str):
 
   return Generator(
     pipe_result, md_writer, 
-    proto_name, output_path, output_image_path,
+    proto_name, output_path, image_folder,
   )
