@@ -40,6 +40,8 @@ nodes:
             output_handle: generator
       - handle: name
         value:
+      - handle: absolute_image_path
+        value: false
   - task: self::dump-content-list-file
     title: "Dump content list file #1"
     node_id: dump-content-list-file#1
@@ -50,6 +52,8 @@ nodes:
             output_handle: generator
       - handle: name
         value:
+      - handle: absolute_image_path
+        value: false
   - task: oomol-file::read-file
     title: "Read file #1"
     node_id: read-file#1
