@@ -1,4 +1,4 @@
-version: 0.0.2
+version: 0.0.3
 icon: ./icon.png
 scripts:
   # Script executed when the container is first loaded
@@ -11,13 +11,13 @@ scripts:
     pip install -U "magic-pdf[full]==0.10.6" --extra-index-url https://wheels.myhloli.com -i https://pypi.tuna.tsinghua.edu.cn/simple --no-cache-dir
     pip install -r requirements.txt
 dependencies:
-  oomol-file: 0.0.1
-  oomol-transform: 0.0.1
+  oomol-file: 0.0.7
+  oomol-transform: 0.0.3
 name: mineru
 displayName: MinerU
 description: MinerU is a tool that converts PDFs into machine-readable formats
   (e.g., markdown, JSON), allowing f
-releaseNotes: add abosulute_image_path filed
+releaseNotes: upgrade dependencies.
 repository: https://github.com/oomol-flows/MinerU
 platform:
   - os: win32
