@@ -54,24 +54,16 @@ nodes:
         value:
       - handle: absolute_image_path
         value: false
-  - task: oomol-file::read-file
-    title: "Read file #1"
-    node_id: read-file#1
-    inputs_from:
-      - handle: file
-        from_node:
-          - node_id: dump-content-list-file#1
-            output_handle: file_path
   - task: oomol-transform::decode-string
     title: "Decode string #1"
     node_id: decode-string#1
     inputs_from:
       - handle: binary
         from_node:
-          - node_id: read-file#1
+          - node_id: file_to_binary#1
             output_handle: binary
       - handle: encoding
-        value: utf8
+        value: utf_8
   - task: oomol-transform::parse-json
     title: "Parse JSON #1"
     node_id: parse-json#1
@@ -80,3 +72,11 @@ nodes:
         from_node:
           - node_id: decode-string#1
             output_handle: string
+  - task: oomol-file::file_to_binary
+    title: "File to binary #1"
+    node_id: file_to_binary#1
+    inputs_from:
+      - handle: file
+        from_node:
+          - node_id: dump-content-list-file#1
+            output_handle: file_path
